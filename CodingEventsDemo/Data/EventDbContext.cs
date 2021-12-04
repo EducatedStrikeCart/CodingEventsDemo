@@ -8,6 +8,8 @@ namespace CodingEventsDemo.Data
     {
         public DbSet<Event> Events { get; set; }
 
+        public DbSet<EventCategory> EventsCategory { get; set; }
+
         public EventDbContext(DbContextOptions<EventDbContext> options) : base(options)
         {
         }

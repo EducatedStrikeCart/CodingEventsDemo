@@ -22,12 +22,28 @@ namespace CodingEventsDemo.Migrations
                 {
                     table.PrimaryKey("PK_Events", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "EventsCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventsCategory", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Events");
+
+            migrationBuilder.DropTable(
+                name: "EventsCategory");
         }
     }
 }
